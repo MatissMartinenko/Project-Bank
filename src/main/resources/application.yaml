@@ -1,0 +1,17 @@
+spring:
+  main:
+    banner-mode: off
+
+  datasource:
+      url: jdbc:mysql://localhost:8080/project-bank
+      username: laptop@laptop07
+      password: 26673349
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+#  liquibase:
+#      change-log: classpath:/db.changelog/changelog-master.xml

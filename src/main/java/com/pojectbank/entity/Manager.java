@@ -1,6 +1,6 @@
-package com.pojectbank.aspect.validation.entity;
+package com.pojectbank.entity;
 
-import com.pojectbank.aspect.validation.entity.enums.ManagerStatus;
+import com.pojectbank.entity.enums.ManagerStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Objects;
+import java.util.UUID;
 
 import static jakarta.persistence.CascadeType.*;
 
@@ -20,7 +21,7 @@ import static jakarta.persistence.CascadeType.*;
 public class Manager {
     @Id
     @Column(name = "manager_id")
-    private int managerID;
+    private UUID id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -42,7 +43,7 @@ public class Manager {
         if (this == o) return true;
         if (!(o instanceof Manager)) return false;
         Manager manager = (Manager) o;
-        return managerID == manager.managerID && status == manager.status && Objects.equals(firstName, manager.firstName)
+        return id == manager.id&& status == manager.status && Objects.equals(firstName, manager.firstName)
                 && Objects.equals(lastName, manager.lastName) && Objects.equals(createdAt, manager.createdAt) && Objects.equals(updateAt, manager.updateAt);
     }
 

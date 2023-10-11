@@ -1,6 +1,8 @@
-package com.pojectbank.aspect.validation.entity;
+package com.pojectbank.entity;
 
-import com.pojectbank.aspect.validation.entity.enums.UserStatus;
+// import jakarta.persistence.Entity;
+
+import com.pojectbank.entity.enums.AgreementStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,46 +20,43 @@ import static jakarta.persistence.CascadeType.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "client")
-public class User {
+@Table(name = "agreement")
+public class Agreement {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "user_id")
+    @Column(name = "id")
     private UUID id;
 
     @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id")
-    private Manager manager;
+    @JoinColumn(name = "account_id", referencedColumnName = "account_id")
+    private Account account;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
+    private Product product;
+    @Column(name = "interest_rate")
+    private double interestRate;
     @Column(name = "status")
-    @Enumerated
-    private UserStatus status;
-    @Column(name = "first_name")
-    private String firstName;
-    @Column(name = "last_name")
-    private String lastName;
-    @Column(name = "tax_code")
-    private String taxCode;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "adress")
-    private String address;
-    @Column(name = "phone")
-    private String phone;
+    @Enumerated(EnumType.STRING)
+    private AgreementStatus status;
+    @Column(name = "sum")
+    private double sum;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Column(name = "update_at")
     private LocalDateTime updateAt;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(taxCode, user.taxCode) && Objects.equals(email, user.email);
+        Agreement agreement = (Agreement) o;
+        return Objects.equals(id, agreement.id) && Objects.equals(createdAt, agreement.createdAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, taxCode, email);
+        return Objects.hash(id, createdAt);
     }
 }

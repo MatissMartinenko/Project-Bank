@@ -1,7 +1,7 @@
-package com.pojectbank.aspect.validation.entity;
+package com.pojectbank.entity;
 
-import com.pojectbank.aspect.validation.entity.enums.CurrencyCode;
-import com.pojectbank.aspect.validation.entity.enums.ProductStatus;
+import com.pojectbank.entity.enums.CurrencyCode;
+import com.pojectbank.entity.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -21,9 +22,9 @@ import java.util.Objects;
 @Table(name = "product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "product_id")
-    private int id;
+    private UUID id;
     @JoinColumn(name = "manager_id")
     private int managerID;
     @Column(name = "name")

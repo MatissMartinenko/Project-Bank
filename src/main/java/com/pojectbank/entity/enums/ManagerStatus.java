@@ -1,4 +1,4 @@
-package com.pojectbank.aspect.validation.entity.enums;
+package com.pojectbank.entity.enums;
 
 public enum ManagerStatus {
     ACTIVE,

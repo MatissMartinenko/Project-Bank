@@ -1,4 +1,4 @@
-package com.pojectbank.aspect.validation.entity;
+package com.pojectbank.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,7 @@ import static jakarta.persistence.CascadeType.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "transaction")
-class Transaction {
+public class Transaction {
     @Id
     @GeneratedValue(generator = "UUID")
     @Column(name = "transaction_id")

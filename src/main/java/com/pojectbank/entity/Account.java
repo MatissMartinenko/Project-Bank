@@ -1,7 +1,7 @@
-package com.pojectbank.aspect.validation.entity;
+package com.pojectbank.entity;
 
-import com.pojectbank.aspect.validation.entity.enums.AccountStatus;
-import com.pojectbank.aspect.validation.entity.enums.CurrencyCode;
+import com.pojectbank.entity.enums.AccountStatus;
+import com.pojectbank.entity.enums.CurrencyCode;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

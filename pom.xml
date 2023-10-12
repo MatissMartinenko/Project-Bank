@@ -93,16 +93,28 @@
             <version>5.2.5</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>com.jamierf.db-table</groupId>-->
+<!--            <artifactId>db-table</artifactId>-->
+<!--            <version>0.1</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.jamierf.db-table</groupId>-->
+<!--            <artifactId>db-table-core</artifactId>-->
+<!--            <version>0.1</version>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>com.jamierf.db-table</groupId>
-            <artifactId>db-table</artifactId>
-            <version>0.1</version>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.3.Final</version>
         </dependency>
 
         <dependency>
-            <groupId>com.jamierf.db-table</groupId>
-            <artifactId>db-table-core</artifactId>
-            <version>0.1</version>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.5.3.Final</version>
         </dependency>
 
     </dependencies>

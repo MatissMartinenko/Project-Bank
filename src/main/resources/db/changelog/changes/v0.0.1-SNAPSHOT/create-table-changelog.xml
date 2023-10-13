@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="matiss" id="create products table">
+        <preConditions onFail="CONTINUE" onFailMessage="Table products already exists">
+            <not>
+                <tableExists tableName="products"/>
+            </not>
+        </preConditions>
+        <createTable tableName="accounts">
+            <column name="id" type="binary(16)">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="name" type="varchar(30)">
+            </column>
+            <column name="type" type="varchar(30)">
+            </column>
+            <column name="accountStatus" type="varchar(30)">
+            </column>
+            <column name="balance" type="decimal">
+            </column>
+            <column name="currency_code" type="varchar(30)">
+            </column>
+            <column name="created_at" type="timestamp">
+            </column>
+            <column name="updated_at" type="timestamp">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--        пример vvvvv    -->
+
+
+    <!--    <changeSet author="m.egorov" id="create credits table">-->
+    <!--        <preConditions onFail="CONTINUE" onFailMessage="Table credits already exists">-->
+    <!--            <not>-->
+    <!--                <tableExists tableName="credits"/>-->
+    <!--            </not>-->
+    <!--        </preConditions>-->
+    <!--        <createTable tableName="credits">-->
+    <!--            <column name="id" type="uuid">-->
+    <!--                <constraints primaryKey="true" nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="order_id" type="uuid">-->
+    <!--                <constraints foreignKeyName="order_id" references="credit_orders(id)"-->
+    <!--                             unique="true" nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="type" type="varchar(30)">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="credit_limit" type="numeric(19, 4)">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="currency_code" type="varchar(3)">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="interest_rate" type="numeric(19, 4)">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="personal_guarantees" type="boolean">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="grace_period_months" type="integer">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="status" type="varchar(30)">-->
+    <!--                <constraints nullable="false"/>-->
+    <!--            </column>-->
+    <!--            <column name="late_payment_rate" type=" numeric(6, 4)"/>-->
+    <!--        </createTable>-->
+    <!--    </changeSet>-->
+
+</databaseChangeLog>

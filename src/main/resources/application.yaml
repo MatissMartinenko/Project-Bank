@@ -4,8 +4,8 @@ spring:
 
   datasource:
     url: jdbc:mysql://localhost:3306/project_bank
-    username: root
-    password: 26673349
+    username: matiss
+    password: Jauna_Parole1
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:

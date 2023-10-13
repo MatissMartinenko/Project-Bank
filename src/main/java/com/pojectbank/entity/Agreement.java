@@ -20,7 +20,7 @@ import static jakarta.persistence.CascadeType.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "agreement")
+@Table(name = "agreements")
 public class Agreement {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -28,11 +28,11 @@ public class Agreement {
     private UUID id;
 
     @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id", referencedColumnName = "account_id")
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;
 
     @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
     @Column(name = "interest_rate")
     private double interestRate;

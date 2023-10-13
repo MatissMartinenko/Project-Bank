@@ -20,11 +20,11 @@ import static jakarta.persistence.CascadeType.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "account")
+@Table(name = "accounts")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "account_id")
+    @Column(name = "id")
     private UUID id;
     @Column(name = "name")
     private String name;
@@ -42,15 +42,15 @@ public class Account {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Column(name = "update_at")
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
 
     @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
     private User user;
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "account")
     private List<Agreement> agreements;
 
     @Override

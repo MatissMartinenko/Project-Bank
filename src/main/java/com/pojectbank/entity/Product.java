@@ -19,14 +19,15 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "product_id")
+    @Column(name = "id")
     private UUID id;
-    @JoinColumn(name = "manager_id")
-    private int managerID;
+    @ManyToOne
+    @JoinColumn(name = "manager_id", referencedColumnName = "id")
+    private Manager manager;
     @Column(name = "name")
     private String name;
     @Column(name = "status")
@@ -43,9 +44,6 @@ public class Product {
     private LocalDateTime createdAt;
     @Column(name = "update_at")
     private LocalDateTime updateAt;
-
-    @ManyToMany(mappedBy = "products")
-    private List<Account> accounts = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

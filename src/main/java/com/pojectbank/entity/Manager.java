@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -17,10 +19,10 @@ import static jakarta.persistence.CascadeType.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "manager")
+@Table(name = "managers")
 public class Manager {
     @Id
-    @Column(name = "manager_id")
+    @Column(name = "id")
     private UUID id;
     @Column(name = "first_name")
     private String firstName;
@@ -30,13 +32,12 @@ public class Manager {
     @Enumerated(EnumType.STRING)
     private ManagerStatus status;
     @Column(name = "created_at")
-    private String createdAt;
+    private LocalDateTime createdAt;
     @Column(name = "update_at")
-    private String updateAt;
+    private LocalDateTime updateAt;
 
-    @OneToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "manager_id")
-    private Account account;
+    @OneToMany(mappedBy = "manager")
+    private List<User> users;
 
     @Override
     public boolean equals(Object o) {

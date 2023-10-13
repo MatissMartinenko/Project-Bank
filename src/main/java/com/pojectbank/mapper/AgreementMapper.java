@@ -8,9 +8,9 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel= "spring")
     public interface AgreementMapper {
 
-        @Mapping(source = "", target = "")
-        @Mapping(source = "", target = "")
-        @Mapping(source = "", target = "")
-        @Mapping(source = "", target = "")
+        @Mapping(source = "id", target = "id")
+        @Mapping(source = "status", target = "status")
+        @Mapping(source = "sum", target = "sum")
+        @Mapping(source = "createdAt", target = "date")
         AgreementDto agreementToDto(Agreement agreement);
 }

@@ -18,15 +18,15 @@ import static jakarta.persistence.CascadeType.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "client")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "user_id")
+    @Column(name = "id")
     private UUID id;
 
     @ManyToOne(cascade = {MERGE, PERSIST, REFRESH}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id")
+    @JoinColumn(name = "manager_id", referencedColumnName = "id")
     private Manager manager;
     @Column(name = "status")
     @Enumerated

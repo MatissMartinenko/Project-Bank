@@ -37,7 +37,7 @@ public class Product {
     @Enumerated
     private CurrencyCode currencyCode;
     @Column(name = "interest_rate")
-    private double interestRate;
+    private String interestRate;
     @Column(name = "limit")
     private double limit;
     @Column(name = "created_at")

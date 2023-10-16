@@ -17,15 +17,15 @@
             <column name="id" type="binary(16)">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="name" type="varchar(30)">
+            <column name="name" type="varchar(50)">
             </column>
             <column name="type" type="varchar(30)">
             </column>
-            <column name="accountStatus" type="varchar(30)">
+            <column name="account_status" type="varchar(30)">
             </column>
-            <column name="balance" type="decimal">
+            <column name="balance" type="decimal(15,2)">
             </column>
-            <column name="currency_code" type="varchar(30)">
+            <column name="currency_code" type="varchar(3)">
             </column>
             <column name="created_at" type="timestamp">
             </column>
@@ -45,11 +45,11 @@
             <column name="id" type="binary(16)">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="name" type="varchar(30)">
+            <column name="name" type="varchar(50)">
             </column>
-            <column name="account" type="varchar(30)">
+            <column name="account_id" type="binary(16)">
             </column>
-            <column name="product" type="varchar(30)">
+            <column name="product_id" type="binary(16)">
             </column>
             <column name="interest_rate" type="decimal(15,2)">
             </column>
@@ -75,17 +75,13 @@
             <column name="id" type="binary(16)">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="manager" type="varchar(30)">
+            <column name="first_name" type="varchar(50)">
             </column>
-            <column name="name" type="varchar(30)">
+            <column name="last_name" type="varchar(50)">
             </column>
             <column name="status" type="varchar(30)">
             </column>
-            <column name="currency_code" type="decimal(15,2)">
-            </column>
-            <column name="interest_rate" type="decimal(15,2)">
-            </column>
-            <column name="limit" type="decimal(15,2)">
+            <column name="currency_code" type="varchar(3)">
             </column>
             <column name="created_at" type="timestamp">
             </column>
@@ -105,13 +101,13 @@
             <column name="id" type="binary(16)">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="first_name" type="varchar(30)">
+            <column name="first_name" type="varchar(50)">
             </column>
-            <column name="last_name" type="varchar(30)">
+            <column name="last_name" type="varchar(50)">
             </column>
-            <column name="status" type="varchar(30)">
+            <column name="status" type="varchar(50)">
             </column>
-            <column name="manager" type="varchar(30)">
+            <column name="manager_id" type="binary(16)">
             </column>
             <column name="created_at" type="timestamp">
             </column>
@@ -131,15 +127,15 @@
             <column name="id" type="binary(16)">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="debit_account_id" type="varchar(30)">
+            <column name="debit_account_id" type="binary(16)">
             </column>
-            <column name="credit_account_id" type="varchar(30)">
+            <column name="credit_account_id" type="binary(16)">
             </column>
-            <column name="type" type="decimal">
+            <column name="type" type="varchar(50)">
             </column>
             <column name="amount" type="decimal(15,2)">
             </column>
-            <column name="description" type="varchar">
+            <column name="description" type="varchar(255)">
             </column>
             <column name="created_at" type="timestamp">
             </column>
@@ -157,21 +153,19 @@
             <column name="id" type="binary(16)">
                 <constraints primaryKey="true" unique="true"/>
             </column>
-            <column name="manager_id" type="varchar(30)">
-            </column>
-            <column name="name" type="varchar(30)">
+            <column name="manager_id" type="binary(16)">
             </column>
             <column name="status" type="varchar(30)">
             </column>
-            <column name="first_name" type="varchar(30)">
+            <column name="first_name" type="varchar(50)">
             </column>
-            <column name="last_name" type="varchar(30)">
+            <column name="last_name" type="varchar(50)">
             </column>
             <column name="tax_code" type="varchar(30)">
             </column>
-            <column name="email" type="varchar(30)">
+            <column name="email" type="varchar(50)">
             </column>
-            <column name="adress" type="varchar(30)">
+            <column name="address" type="varchar(50)">
             </column>
             <column name="phone" type="varchar(30)">
             </column>

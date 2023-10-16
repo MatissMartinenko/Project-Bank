@@ -1,6 +1,5 @@
 package com.pojectbank.service;
 
-import com.pojectbank.entity.Account;
 import com.pojectbank.entity.Agreement;
 
 import java.util.Optional;

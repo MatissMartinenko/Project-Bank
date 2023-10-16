@@ -29,7 +29,7 @@ public class User {
     @JoinColumn(name = "manager_id", referencedColumnName = "id")
     private Manager manager;
     @Column(name = "status")
-    @Enumerated
+    @Enumerated(value = EnumType.STRING)
     private UserStatus status;
     @Column(name = "first_name")
     private String firstName;
@@ -39,13 +39,13 @@ public class User {
     private String taxCode;
     @Column(name = "email")
     private String email;
-    @Column(name = "adress")
+    @Column(name = "address")
     private String address;
     @Column(name = "phone")
     private String phone;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-    @Column(name = "update_at")
+    @Column(name = "updated_at")
     private LocalDateTime updateAt;
 
     @Override

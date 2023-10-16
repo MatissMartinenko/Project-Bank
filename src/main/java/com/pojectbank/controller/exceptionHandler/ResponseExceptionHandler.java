@@ -1,20 +1,29 @@
 package com.pojectbank.controller.exceptionHandler;
 
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.*;
+import com.pojectbank.exception.SomeException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
+import org.springframework.web.bind.annotation.*;
 
-//@RestController
-//@RequestMapping("/eh")
+@ControllerAdvice
 public class ResponseExceptionHandler {
-//    @GetMapping("/{id}")
-//    public ResponseEntity<String> get(@PathVariable("id") int id) {
-//        if (id > 0) {
-//            throw new IllegalArgumentException("It must be greater than zero");
-//        }
-//        String response = "RESPONSE: ID [" + id + "]";
-//        return ResponseEntity.ok(response);
-//        @ExceptionHandler(IllegalArgumentException.class)
-//        public ResponseEntity<String> handlerIllegalexception
-//    }
 
+    @ExceptionHandler(SomeException.class)
+    public ResponseEntity<ErrorResponse> exceptionHandlerNotFound(Throwable ex) {
+        ErrorResponse response = ErrorResponse.builder(ex, HttpStatus.NOT_FOUND, ex.getMessage()).build();
+        return ResponseEntity.ofNullable(response);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> exceptionHeadlerBadRequest(Throwable throwable) {
+        ErrorResponse response = ErrorResponse.builder(throwable, HttpStatus.BAD_REQUEST, throwable.getMessage()).build();
+        return ResponseEntity.ofNullable(response);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> exceptionHandlerNotAccess(Throwable thr) {
+        ErrorResponse response = ErrorResponse.builder(thr, HttpStatus.NOT_ACCEPTABLE, thr.getMessage()).build();
+        return ResponseEntity.ofNullable(response);
+    }
 }
